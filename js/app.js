@@ -50,3 +50,46 @@ let thumbsActive = document.getElementById("preview-" + active);
 photoActive.classList.add("active");
 thumbsActive.classList.add("thumbnail-active");
 
+// dichiaro le variabili delle frecce
+let up = document.getElementById("arrow-up");
+let down = document.getElementById("arrow-down");
+
+
+// freccia in su
+// al click della freccia
+up.addEventListener('click', function(){
+    // la var active decrementa di 1
+    active--;
+    // se sei sulla prima foto (i0) e fai click 
+    if(active < 0){
+        // va all'ultima img (i4)
+        active = 4;
+    }
+
+    photoActive.classList.remove("active");
+    thumbsActive.classList.remove("thumbnail-active");
+    photoActive = document.getElementById("pic-" + active);
+    thumbsActive = document.getElementById("preview-" + active);
+    photoActive.classList.add("active");
+    thumbsActive.classList.add("thumbnail-active");
+})
+
+
+// freccia in giu
+// al click della freccia
+down.addEventListener('click', function(){
+    // la var active aumenta di 1
+    active++;
+    // se sei sull'ultima foto (i4) e fai click 
+    if(active > 4){
+        // va alla prima img (i0)
+        active = 0;
+    }
+
+    photoActive.classList.remove("active");
+    thumbsActive.classList.remove("thumbnail-active");
+    photoActive = document.getElementById("pic-" + active);
+    thumbsActive = document.getElementById("preview-" + active);
+    photoActive.classList.add("active");
+    thumbsActive.classList.add("thumbnail-active");
+})
